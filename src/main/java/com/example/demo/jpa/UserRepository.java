@@ -1,10 +1,17 @@
-package com.example.demo.jpa;
+package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.User;
+
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // 這裡可以擴展更多自定義方法，例如根據姓名查詢
+    
+    // Spring Data JPA 會自動實作這些方法
     User findByName(String name);
+    
+    List<User> findByAgeGreaterThan(Integer age);
 }
