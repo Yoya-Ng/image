@@ -13,6 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("https://yo-note.netlify.app", "http://localhost:8080") // ⚠️ 替換成你的前端網域
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 允許的 HTTP 方法
                 .allowedHeaders("*") // 允許所有請求標頭
+                .exposedHeaders("Authorization")
                 .allowCredentials(true) // 如果你需要傳遞 Cookies 或授權資訊
                 .maxAge(3600); // CORS 預檢請求的緩存時間
     }
